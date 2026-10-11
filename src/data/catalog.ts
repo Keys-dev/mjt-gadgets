@@ -40,10 +40,10 @@ export const catalog: CatalogCategory[] = [
     id: 'smart-devices',
     label: 'Smart Devices',
     items: [
-      { id: 'apple-watch', name: 'Apple Watch', image: '/images/appleairpods.png' },
-      { id: 'samsung-watch', name: 'Samsung Galaxy Watch', image: '/images/samsung.jpg' },
-      { id: 'smartwatch', name: 'Smartwatches', image: '/images/appleairpods.png' },
-      { id: 'smartband', name: 'Smart bands', image: '/images/appleairpods.png' },
+      { id: 'apple-watch', name: 'Apple Watch', image: '/images/applewatch.jpg' },
+      { id: 'samsung-watch', name: 'Samsung Galaxy Watch', image: '/images/samsung%20watch.jpg' },
+      { id: 'smartwatch', name: 'Smartwatches', image: '/images/smartwatch.jpg' },
+      { id: 'smartband', name: 'Smart bands', image: '/images/smartband.jpg' },
     ],
   },
   {
