@@ -33,20 +33,24 @@ export default function App() {
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-        <header className="nav">
-          <a className="brand" href="#top">
-            {STORE_NAME}<br />
-            <span className="address-text">Ido Osun and Owode Ede</span>
-          </a>
-          <nav aria-label="Primary">
-            <a href="#services">Services</a>
-            <a href="#catalogue">Catalogue</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <button className="btn ghost" onClick={() => setOpen(true)} aria-haspopup="dialog">
-            Enquiry list ({list.length})
-          </button>
-        </header>
+          <header className="nav">
+            <a className="brand" href="#top">
+              <div className="brand-top">
+                <img src="/images/MJT%20Gadgets%20logo.jpeg" alt="MJT Gadgets logo" className="logo" />
+                <strong>{STORE_NAME}</strong>
+              </div>
+              <span className="address-text">Ido Osun and Owode Ede</span>
+            </a>
+            <nav aria-label="Primary">
+              <a href="#services">Services</a>
+              <a href="#catalogue">Catalogue</a>
+              <a href="#contact">Contact</a>
+            </nav>
+            <button className="btn ghost" onClick={() => setOpen(true)} aria-haspopup="dialog">
+              Enquiry list ({list.length})
+            </button>
+          </header>
+
 
       <main id="main">
         <section className="hero" id="top">

@@ -30,8 +30,32 @@ a { color: inherit; }
 .announce { background: var(--graphite); color: var(--paper); font-size: .8rem; text-align: center; padding: .5rem 1rem; }
 .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1rem clamp(1rem, 4vw, 3rem); border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--paper); z-index: 20; }
 .brand {
-  display: inline-block;
-  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+}
+.brand-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.brand strong {
+  font-weight: 700; /* bolder store name */
+}
+.logo {
+  height: 40px;
+  object-fit: contain;
+}
+.thumb {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  margin-bottom: 0.75rem; /* consistent space below image */
+}
+.card {
+  gap: 0.75rem; /* ensure uniform spacing between elements */
+  background: var(--card); border: 1px solid var(--line); padding: 1rem; display: grid; align-content: start; border-radius: var(--radius);
 }
 .address-text {
   display: block;
@@ -80,7 +104,7 @@ main, .footer { max-width: 1200px; margin: 0 auto; padding-inline: clamp(1rem, 4
 .count { opacity: .7; font-size: .75rem; margin-left: .25rem; background: var(--graphite); color: var(--paper); padding: 0.1rem 0.3rem; border-radius: var(--radius); }
 .search { max-width: 420px; margin-bottom: 1.5rem; }
 .grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 1.25rem; }
-.card { background: var(--card); border: 1px solid var(--line); padding: 1rem; display: grid; gap: .4rem; align-content: start; border-radius: var(--radius); }
+.card { background: var(--card); border: 1px solid var(--line); padding: 1rem; display: grid; gap: .75rem; align-content: start; border-radius: var(--radius); }
 .address {
   padding: 2rem 1rem;
   background: var(--card);
