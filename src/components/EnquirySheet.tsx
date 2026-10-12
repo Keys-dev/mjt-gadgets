@@ -1,7 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { naira, products } from '../data';
+import { catalog } from '../data/catalog';
 import { STORE_NAME } from '../config';
 import { whatsappLink } from '../whatsapp';
+
+// Flatten all catalog items into a single list for lookups
+const allItems = catalog.flatMap((cat) => cat.items);
 
 interface Props {
   open: boolean;
@@ -13,7 +16,7 @@ interface Props {
 
 export default function EnquirySheet({ open, ids, onClose, onRemove, onClear }: Props) {
   const ref = useRef<HTMLElement>(null);
-  const items = ids.map((id) => products.find((p) => p.id === id)).filter((p) => !!p);
+  const items = ids.map((id) => allItems.find((p) => p.id === id)).filter((p) => !!p);
 
   useEffect(() => {
     if (!open) return;
@@ -31,7 +34,7 @@ export default function EnquirySheet({ open, ids, onClose, onRemove, onClear }: 
 
   const message =
     `Hello ${STORE_NAME}, I would like to ask about these items:\n\n` +
-    items.map((p) => `- ${p!.name} (${p!.condition}, ${naira(p!.price)})`).join('\n');
+    items.map((p) => `- ${p!.name}`).join('\n');
 
   return (
     <div className="overlay" onClick={onClose}>
@@ -49,7 +52,6 @@ export default function EnquirySheet({ open, ids, onClose, onRemove, onClear }: 
                 <li key={p!.id}>
                   <div>
                     <strong>{p!.name}</strong>
-                    <span>{p!.condition} / {naira(p!.price)}</span>
                   </div>
                   <button className="link" onClick={() => onRemove(p!.id)} aria-label={`Remove ${p!.name}`}>Remove</button>
                 </li>

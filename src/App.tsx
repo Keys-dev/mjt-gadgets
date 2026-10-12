@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { STORE_NAME } from './config';
 import { greeting, whatsappLink } from './whatsapp';
 import ServiceSelector from './components/ServiceSelector';
@@ -17,6 +17,25 @@ export default function App() {
     }
   });
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+  const lastScrollY = useRef(0);
+
+  // Smart sticky: hide nav on scroll down, show on scroll up
+  useEffect(() => {
+    const onScroll = () => {
+      const currentY = window.scrollY;
+      if (navRef.current) {
+        if (currentY > lastScrollY.current && currentY > 80) {
+          navRef.current.classList.add('nav--hidden');
+        } else {
+          navRef.current.classList.remove('nav--hidden');
+        }
+      }
+      lastScrollY.current = currentY;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   useEffect(() => {
     try {
@@ -33,7 +52,7 @@ export default function App() {
   return (
     <>
       <a className="skip" href="#main">Skip to content</a>
-          <header className="nav">
+          <header className="nav" ref={navRef}>
             <a className="brand" href="#top">
               <div className="brand-top">
                 <img src="/images/MJT%20Gadgets%20logo.jpeg" alt="MJT Gadgets logo" className="logo" />
