@@ -28,12 +28,13 @@ a { color: inherit; }
 .skip { position: absolute; left: -999px; top: 0; background: var(--sky-mint); color: #fff; padding: .6rem 1rem; z-index: 100; }
 .skip:focus { left: 0; }
 .announce { background: var(--graphite); color: var(--paper); font-size: .8rem; text-align: center; padding: .5rem 1rem; }
-.nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1rem clamp(1rem, 4vw, 3rem); border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--paper); z-index: 20; }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1rem clamp(1rem, 4vw, 3rem); border-bottom: 1px solid var(--line); position: relative; background: var(--paper); z-index: 20; }
 .brand {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 .brand-top {
   display: flex;
@@ -41,10 +42,11 @@ a { color: inherit; }
   gap: 0.5rem;
 }
 .brand strong {
-  font-weight: 700; /* bolder store name */
+  font-weight: 700;
+  font-size: clamp(1.5rem, 5vw, 2.2rem); /* responsive larger store name */
 }
 .logo {
-  height: 40px;
+  height: 60px;
   object-fit: contain;
 }
 .thumb {
@@ -52,6 +54,8 @@ a { color: inherit; }
   height: auto;
   object-fit: cover;
   margin-bottom: 0.75rem; /* consistent space below image */
+  background: #ffffff;
+  border-radius: var(--radius);
 }
 .card {
   gap: 0.75rem; /* ensure uniform spacing between elements */
@@ -59,14 +63,70 @@ a { color: inherit; }
 }
 .address-text {
   display: block;
-  font-size: .9rem;
+  font-size: clamp(1rem, 4vw, 1.4rem);
   color: var(--muted);
 }
 
 .nav nav { display: flex; gap: 1.25rem; font-size: .9rem; }
 .nav nav a { text-decoration: none; }
 .nav nav a:hover { text-decoration: underline; }
-@media (max-width: 560px) { .nav nav { order: 3; width: 100%; justify-content: space-between; } }
+
+/* Enquiry button spacing */
+.nav button {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 560px) {
+  /* Stack everything vertically & center */
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+  }
+
+  /* Center the brand block */
+  .brand {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Stack logo above name */
+  .brand-top {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brand strong {
+    text-align: center;
+  }
+
+  .address-text {
+    text-align: center;
+    margin-top: 0.35rem;
+  }
+
+  /* Nav links: full width, evenly spaced */
+  .nav nav {
+    order: 3;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 0;
+    padding: 0.5rem 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* Enquiry button: full width & centered */
+  .nav button {
+    order: 4;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+}
 
 main, .footer { max-width: 1200px; margin: 0 auto; padding-inline: clamp(1rem, 4vw, 3rem); }
 .hero { padding-block: clamp(3rem, 9vw, 7rem); }

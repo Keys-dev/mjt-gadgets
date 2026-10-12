@@ -53,7 +53,7 @@ export const catalog: CatalogCategory[] = [
       { id: 'chargers', name: 'Chargers', image: '/images/phonecharger.jpg' },
       { id: 'fast-chargers', name: 'Fast chargers', image: '/images/fastcharger.jpg' },
       { id: 'usb-cables', name: 'USB cables', image: '/images/usbcable.png' },
-      { id: 'type-c', name: 'Type-C cables', image: '/images/usbcable.png' },
+      { id: 'type-c', name: 'Type-C cables', image: '/images/usbccharger.jpg' },
       { id: 'lightning', name: 'Lightning cables', image: '/images/lighteningcable.jpg' },
       { id: 'power-banks', name: 'Power banks', image: '/images/powerbanks.jpg' },
       { id: 'cases', name: 'Phone cases', image: '/images/phonecase.jpg' },
